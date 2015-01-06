@@ -1,3 +1,17 @@
 from django.db import models
 
 # Create your models here.
+
+class Paste(models.Model):
+
+    created = models.DateTimeField(auto_now_add=True)
+    title = models.CharField(max_length=150,
+                             default='',
+                             blank=True)
+    author = models.CharField(max_length=150,
+                              default='',
+                              blank=True)
+    content = models.TextField()
+
+    class Meta:
+        ordering=['created']
