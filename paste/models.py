@@ -8,7 +8,7 @@ class Paste(models.Model):
                              blank=True)
     author = models.CharField(max_length=150,
                               default='',
-                              blank=True)
+                              blank=False)
     content = models.TextField()
 
     class Meta:

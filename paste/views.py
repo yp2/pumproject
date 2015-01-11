@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-from django.shortcuts import get_object_or_404
 
+
+from django.shortcuts import get_object_or_404
 from .models import Paste
 from .serializers import PasteSerializer
-from django.http import Http404
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
