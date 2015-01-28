@@ -22,3 +22,5 @@ class Client(models.Model):
         auto_now=True
     )
 
+    def __unicode__(self):
+        return u'{} - ({})'.format(self.name, self.user.username)
