@@ -26,4 +26,4 @@ class Client(models.Model):
     )
 
     def __unicode__(self):
-        return u'{} - ({})'.format(self.name, self.user.username)
+        return u'{} - ({}-{})'.format(self.name,self.remote_id, self.user.username)
