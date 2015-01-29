@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from django.contrib.auth.models import User
 
 from django.shortcuts import render, get_object_or_404
 
@@ -32,13 +33,15 @@ class ClientList(APIView):
 
 class ClientDetail(APIView):
 
-    def get(self, request, id):
-        client = get_object_or_404(Client, id=id)
+    def get(self, request, username, remote_id):
+        user = get_object_or_404(User, username=username)
+        client = get_object_or_404(Client, remote_id=remote_id, user=user )
         serializer = ClientSerializer(client)
         return Response(serializer.data)
 
-    def put(self, request, id):
-        client = get_object_or_404(Client, id=id)
+    def put(self, request, username, remote_id):
+        user = get_object_or_404(User, username=username)
+        client = get_object_or_404(Client, remote_id=remote_id, user=user )
         serializer = ClientSerializer(client, data=request.data)
         if serializer.is_valid():
             serializer.save()

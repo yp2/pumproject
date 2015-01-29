@@ -10,6 +10,7 @@ class ClientSerializer(serializers.Serializer):
 
     pk = serializers.IntegerField(read_only=True)
     user = serializers.CharField()
+    remote_id = serializers.IntegerField()
     name = serializers.CharField()
     address = serializers.CharField(required=False)
 
@@ -27,7 +28,7 @@ class ClientSerializer(serializers.Serializer):
             instance.user = validated_data.get('user')
         else:
             instance.user = instance.user
-
+        instance.remote_id = validated_data.get('remote_id', instance.remote_id)
         instance.name = validated_data.get('name', instance.name)
         instance.address = validated_data.get('address', instance.address)
         instance.save()

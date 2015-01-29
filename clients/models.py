@@ -9,6 +9,9 @@ class Client(models.Model):
         User,
         related_name='client'
     )
+    remote_id = models.IntegerField(
+        verbose_name=u'Zdalne id'
+    )
     name = models.TextField(
         verbose_name=u"Nazwa"
     )

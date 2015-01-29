@@ -8,5 +8,5 @@ __author__ = 'daniel'
 urlpatterns = patterns(
     '',
     url(r'^$', views.ClientList.as_view(), name='list'),
-    url(r'^(?P<id>\d+)/$', views.ClientDetail.as_view(), name='detail'),
+    url(r'^(?P<username>\w+)/(?P<remote_id>\d+)/$', views.ClientDetail.as_view(), name='detail'),
     )
