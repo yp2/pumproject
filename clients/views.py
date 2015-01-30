@@ -13,9 +13,9 @@ from rest_framework import status
 
 class ClientList(APIView):
 
-    def get(self, request, user=None):
-        if user:
-            pass
+    def get(self, request, username=None):
+        if username:
+            all_clients = Client.objects.filter(user__username=username)
         else:
             all_clients = Client.objects.all()
 
